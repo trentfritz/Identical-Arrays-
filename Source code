@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class IdenticalArrays {
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Prompt the user to enter the first array
+        System.out.print("Enter list1: ");
+        int[][] m1 = readArray(input);
+        
+        // Prompt the user to enter the second array
+        System.out.print("Enter list2: ");
+        int[][] m2 = readArray(input);
+        
+        // Check if the arrays are identical and display the result
+        if (equals(m1, m2)) {
+            System.out.println("The two arrays are identical");
+        } else {
+            System.out.println("The two arrays are not identical");
+        }
+        
+        input.close();
+    }
+    
+    /** Read a 3x3 array of integers from the user */
+    public static int[][] readArray(Scanner input) {
+        int[][] array = new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                array[i][j] = input.nextInt();
+            }
+        }
+        return array;
+    }
+    
+    /** Check if two 3x3 arrays of integers are identical */
+    public static boolean equals(int[][] m1, int[][] m2) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (m1[i][j] != m2[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
